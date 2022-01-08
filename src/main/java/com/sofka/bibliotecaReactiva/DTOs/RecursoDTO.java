@@ -21,7 +21,10 @@ public class RecursoDTO {
         this.nombre = nombre;
     }
 
-    public RecursoDTO(String id, Tipo tipo, boolean disponible, Tematica tematica, String nombre, LocalDateTime fechaPrestamo) {
+    public RecursoDTO(){
+    }
+
+    public RecursoDTO(String id, Tipo tipo, boolean disponible , Tematica tematica, String nombre, LocalDateTime fechaPrestamo) {
         this.id = id;
         this.tipo = tipo;
         this.disponible = disponible;
