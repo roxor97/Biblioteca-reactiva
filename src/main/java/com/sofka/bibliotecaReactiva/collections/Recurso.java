@@ -3,6 +3,9 @@ package com.sofka.bibliotecaReactiva.collections;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.sofka.bibliotecaReactiva.utils.Tematica;
+import com.sofka.bibliotecaReactiva.utils.Tipo;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,14 +14,11 @@ public class Recurso {
 
     @Id
     private String id = UUID.randomUUID().toString().substring(0, 10);
-
-    private String tipo;
-
-    private String tematica;
-
+    private Tipo tipo;
+    private boolean disponible;
+    private Tematica tematica;
+    private String nombre;
     private LocalDateTime fechaPrestamo;
-
-    private Boolean estaDisponible;
 
     public String getId() {
         return id;
@@ -28,19 +28,19 @@ public class Recurso {
         this.id = id;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
-    public String getTematica() {
+    public Tematica getTematica() {
         return tematica;
     }
 
-    public void setTematica(String tematica) {
+    public void setTematica(Tematica tematica) {
         this.tematica = tematica;
     }
 
@@ -52,11 +52,21 @@ public class Recurso {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Boolean getEstaDisponible() {
-        return estaDisponible;
+    public Boolean getDisponible() {
+        return disponible;
     }
 
-    public void setEstaDisponible(Boolean estaDisponible) {
-        this.estaDisponible = estaDisponible;
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
 }

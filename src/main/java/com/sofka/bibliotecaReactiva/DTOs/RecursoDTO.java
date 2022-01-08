@@ -2,32 +2,34 @@ package com.sofka.bibliotecaReactiva.DTOs;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotBlank;
+import com.sofka.bibliotecaReactiva.utils.Tematica;
+import com.sofka.bibliotecaReactiva.utils.Tipo;
 
 public class RecursoDTO {
 
     private String id;
-
-    @NotBlank
-    private String tipo;
-
-    @NotBlank
-    private String tematica;
-
+    private Tipo tipo;
+    private boolean disponible;
+    private Tematica tematica;
+    private String nombre;
     private LocalDateTime fechaPrestamo;
 
-    private Boolean disponibilidad;
 
-    public RecursoDTO() {
-    }
-
-    public RecursoDTO(String id, String tipo, String tematica, LocalDateTime fechaPrestamo, Boolean disponibilidad) {
-        this.id = id;
+    public RecursoDTO(Tipo tipo, Tematica tematica, String nombre) {
         this.tipo = tipo;
         this.tematica = tematica;
-        this.fechaPrestamo = fechaPrestamo;
-        this.disponibilidad = disponibilidad;
+        this.nombre = nombre;
     }
+
+    public RecursoDTO(String id, Tipo tipo, boolean disponible, Tematica tematica, String nombre, LocalDateTime fechaPrestamo) {
+        this.id = id;
+        this.tipo = tipo;
+        this.disponible = disponible;
+        this.tematica = tematica;
+        this.nombre = nombre;
+        this.fechaPrestamo = fechaPrestamo;
+    }
+
 
     public String getId() {
         return id;
@@ -37,20 +39,36 @@ public class RecursoDTO {
         this.id = id;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
-    public String getTematica() {
+    public boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
+    }
+
+    public Tematica getTematica() {
         return tematica;
     }
 
-    public void setTematica(String tematica) {
+    public void setTematica(Tematica tematica) {
         this.tematica = tematica;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public LocalDateTime getFechaPrestamo() {
@@ -61,11 +79,7 @@ public class RecursoDTO {
         this.fechaPrestamo = fechaPrestamo;
     }
 
-    public Boolean getDisponibilidad() {
-        return disponibilidad;
-    }
+    
 
-    public void setDisponibilidad(Boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
+    
 }
